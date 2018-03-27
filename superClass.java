@@ -27,10 +27,17 @@ public class main {
         System.out.println("Enter a length to be used: ");
         Scanner input = new Scanner(System.in);
         double length = input.nextDouble();
-        System.out.println("The length entered is " + length + "and the width is " + length);
-        main newSquare = new main(length, length);
-        System.out.println("The area of the square is:  " + newSquare.area());
-    
+        /*System.out.println("The length entered is " + length + "and the width is " + length);
+        main newSquare = new main(length,length);
+        System.out.println("The area of the square is:  " + newSquare.area());*/
+        
+    //User inputs height to be used for a cube
+        System.out.println("Enter a height to be used: ");
+        double height = input.nextDouble();
+        System.out.println("The height entered is " + height);
+        Cube newCube = new Cube(length, length, height);
+        System.out.println("The volume of the cube is " + newCube.Volume());
+        System.out.println("The SA of the cube is " + newCube.SA());
     }
     
 }
