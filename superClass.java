@@ -36,8 +36,13 @@ public class main {
         double height = input.nextDouble();
         System.out.println("The height entered is " + height);
         Cube newCube = new Cube(length, length, height);
-        System.out.println("The volume of the cube is " + newCube.Volume());
-        System.out.println("The SA of the cube is " + newCube.SA());
+        System.out.println("The volume of the cube is " + newCube.Volume_C());
+        System.out.println("The SA of the cube is " + newCube.SA_C());
+    
+     //An object was created for the rectangular prism  
+        RectangularPrism newPrism = new RectangularPrism(length, length, height);
+        System.out.println("The volume of the rectangular prism is " + newPrism.Volume_R());
+        System.out.println("The SA of the cube is " + newPrism.SA_R());
     }
     
 }
