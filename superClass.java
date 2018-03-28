@@ -14,6 +14,22 @@ public class main {
     public double square_Length (){
         return length1;
     }
+package square;
+import java.util.Scanner;
+
+public class main {
+    
+    public double length1;
+    public double width1;
+    
+    public main (double length, double width){
+        length1 = length;
+        width1 = width;
+    }
+    
+    public double square_Length (){
+        return length1;
+    }
     
     public double square_Width (){
         return width1;
@@ -24,6 +40,9 @@ public class main {
     }
     
     public static void main(String[] args) {
+    
+    while(true) { 
+        System.out.println("");
         System.out.println("Enter a length to be used: ");
         Scanner input = new Scanner(System.in);
         double length = input.nextDouble();
@@ -49,6 +68,7 @@ public class main {
         System.out.println("The volume of the square based pyramid is " + newPyramid.Volume_P());
         System.out.println("The SA of the square based pyramid is " + newPyramid.SA_P());
         
+    }
     }
     
 }
