@@ -42,7 +42,13 @@ public class main {
      //An object was created for the rectangular prism  
         RectangularPrism newPrism = new RectangularPrism(length, length, height);
         System.out.println("The volume of the rectangular prism is " + newPrism.Volume_R());
-        System.out.println("The SA of the cube is " + newPrism.SA_R());
+        System.out.println("The SA of the rectangular prism is " + newPrism.SA_R());
+        
+    //An object was created for the square based pyramid
+        Square_Based_Pyramid newPyramid = new Square_Based_Pyramid(length,length,height);
+        System.out.println("The volume of the square based pyramid is " + newPyramid.Volume_P());
+        System.out.println("The SA of the square based pyramid is " + newPyramid.SA_P());
+        
     }
     
 }
