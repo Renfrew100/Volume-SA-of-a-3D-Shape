@@ -8,10 +8,10 @@ public class Cube extends main {
         this.height = height;
     }
     
-    public double Volume (){
+    public double Volume_C (){
         return length1*length1*height;     
     }
-    public double SA(){
+    public double SA_C(){
         return Math.pow(length1,2)*6;
     } 
    
