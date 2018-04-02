@@ -1,14 +1,15 @@
 package square;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class main {
     
     public double length1;
     public double width1;
     
-    public main (double length1, double width1){
-       this.length1 = length1;
-       this.width1 = width1;
+    public main (double length, double width){
+       this.length1 = length;
+       this.width1 = width;
     }
     
     public double square_Length (){
@@ -19,34 +20,70 @@ public class main {
         return width1;
     }
     
-    /*public double area(){
+    public double areaSquare(){
         return length1*width1;
-    }*/
+}
+
     
     public static void main(String[] args) {
-       
+        
+        double length = 0;
+        double height = 0;
         int playAgain = 1;        
         while(playAgain == 1) {
             int shape = 0;
             while(shape != 4) { 
-
-                System.out.println("Do you want to play or quit? (1 or 2)");
+                
+                System.out.println("");
+                System.out.print("Do you want to play or quit? (1 or 2, respectively): ");
                 Scanner input = new Scanner(System.in);
                 playAgain = input.nextInt();
                 
                 if (playAgain == 1) {
-                    //User inputs length to be used for all classes
-                    System.out.println("");
-                    System.out.print("Enter a length to be used: ");
-                    double length = input.nextDouble();
-
-                    //User inputs height to be used for all classes 
-                    System.out.print("Enter a height to be used: ");
-                    double height = input.nextDouble();
+                   
+                   //Validity of the input of a length
+                    do {
+                        System.out.print("Enter a length to be used: ");
+                        try {
+                            length = input.nextDouble();
+                
+                            if (length < 0) {
+                                System.out.println("Please enter a positive value for the length!");
+                                System.out.println("");
+                            }
+                        }
+                        catch (InputMismatchException e) {
+                            System.out.println("Please enter an integer!");
+                            input.next(); //Discard the input of a string
+                            System.out.println("");
+                        } 
+                    } while(length < 0);
+                    
+                    //Validity of the input of a height
+                    do {
+                        System.out.print("Enter a height to be used: ");
+                        try {
+                            height = input.nextDouble();
+                
+                            if (height < 0) {
+                                System.out.println("Please enter a positive value for the height!");
+                                System.out.println("");
+                            }
+                        }
+                        catch (InputMismatchException e) {
+                            System.out.println("Please enter an integer!");
+                            input.next(); //Discard the input of a string
+                            System.out.println("");
+                        } 
+                    } while(height < 0);
+                
+                    main newSquare = new main(length, length);
+                    System.out.print("The area of the square is: " + newSquare.areaSquare());
                     System.out.println("");
                     
-                    System.out.println("Enter 1 for volume and SA of cube, 2 for volume and SA fo rectangular prism, "
-                            + "3 for volume and SA for square-based pyramid and 4 to quit");
+                    System.out.println("");
+                    System.out.print("Enter 1 for Volume and SA of Cube, 2 for Volume and SA for Rectangular Prism, "
+                            + "3 for Volume and SA for Square-Based Pyramid and 4 to Quit: ");
                     shape=input.nextInt();
 
                     if (shape == 1) {
@@ -68,8 +105,9 @@ public class main {
                     else if (shape == 3){
                         //An object was created for the square based pyramid
                         SquareBasedPyramid newPyramid = new SquareBasedPyramid(length,length,height);
-                        System.out.println("The Volume of the Square-Based Pyramid is " + newPyramid.Volume_T());
-                        System.out.println("The Surface Area of the Square-Based Pyramid is " + newPyramid.SA_T());
+                        System.out.println("The Volume of the Square-Based Pyramid is " + newPyramid.Volume_S());
+                        System.out.println("The Surface Area of the Square-Based Pyramid is " + newPyramid.SA_S());
+                        System.out.println("");
                     }
 
                     else {
@@ -80,7 +118,9 @@ public class main {
                 
                 else {
                     playAgain = 2;
-                    break;
+                    System.out.println("Thanks for using our application!");
+                    break; 
+                    
                 }
                 
                 
