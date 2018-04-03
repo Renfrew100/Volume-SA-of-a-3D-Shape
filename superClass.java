@@ -19,12 +19,7 @@ public class main {
     public double square_Width (){
         return width1;
     }
-    
-    public double areaSquare(){
-        return length1*width1;
-}
-
-    
+  
     public static void main(String[] args) {
         
         double length = 0;
@@ -76,57 +71,45 @@ public class main {
                             System.out.println("");
                         } 
                     } while(height < 0);
-                
-                    main newSquare = new main(length, length);
-                    System.out.print("The area of the square is: " + newSquare.areaSquare());
-                    System.out.println("");
                     
                     System.out.println("");
                     System.out.print("Enter 1 for Volume and SA of Cube, 2 for Volume and SA for Rectangular Prism, "
                             + "3 for Volume and SA for Square-Based Pyramid and 4 to Quit: ");
                     shape=input.nextInt();
 
-                    if (shape == 1) {
-                        //An object was created for the cube 
-                        Cube newCube = new Cube(length, length, height);
-                        System.out.println("The Volume of the Cube is " + newCube.Volume_C());
-                        System.out.println("The Surface Area of the Cube is " + newCube.SA_C());
-                        System.out.println("");
+                    switch (shape) {
+                        case 1:
+                            //An object was created for the cube
+                            Cube newCube = new Cube(length, length, height);
+                            System.out.println("The Volume of the Cube is " + newCube.Volume_C());
+                            System.out.println("The Surface Area of the Cube is " + newCube.SA_C());
+                            System.out.println("");
+                            break;
+                        case 2:
+                            //An object was created for the rectangular prism
+                            RectangularPrism newPrism = new RectangularPrism(length, length, height);
+                            System.out.println("The Volume of the Rectangular Prism is " + newPrism.Volume_R());
+                            System.out.println("The Surface Area of the Rectangular Prism is " + newPrism.SA_R());
+                            System.out.println("");
+                            break;
+                        case 3:
+                            //An object was created for the square based pyramid
+                            SquareBasedPyramid newPyramid = new SquareBasedPyramid(length,length,height);
+                            System.out.println("The Volume of the Square-Based Pyramid is " + newPyramid.Volume_S());
+                            System.out.println("The Surface Area of the Square-Based Pyramid is " + newPyramid.SA_S());
+                            System.out.println("");
+                            break;
+                        default:
+                            break;
                     }
 
-                    else if (shape == 2) {
-                        //An object was created for the rectangular prism  
-                        RectangularPrism newPrism = new RectangularPrism(length, length, height);
-                        System.out.println("The Volume of the Rectangular Prism is " + newPrism.Volume_R());
-                        System.out.println("The Surface Area of the Rectangular Prism is " + newPrism.SA_R());
-                        System.out.println("");
-                    }
-
-                    else if (shape == 3){
-                        //An object was created for the square based pyramid
-                        SquareBasedPyramid newPyramid = new SquareBasedPyramid(length,length,height);
-                        System.out.println("The Volume of the Square-Based Pyramid is " + newPyramid.Volume_S());
-                        System.out.println("The Surface Area of the Square-Based Pyramid is " + newPyramid.SA_S());
-                        System.out.println("");
-                    }
-
-                    else {
-                        System.out.println("Thanks for using our application!");
-                        break;
-                    }
-                }
-                
+                }             
                 else {
                     playAgain = 2;
                     System.out.println("Thanks for using our application!");
                     break; 
-                    
-                }
-                
-                
+                }         
             }
-    
         }
-    }
-    
+    } 
 }
